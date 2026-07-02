@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WBM · Managed IT Scorecard · July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#F0F4F8;color:#1A2B4B;min-height:100vh}
+.page{max-width:1080px;margin:0 auto;padding:0 0 60px}
+.header{background:#1A2B4B;padding:18px 48px;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:18px}
+.header-mark{background:#fff;border-radius:8px;padding:6px 10px;display:flex;align-items:center}
+.header-mark img{height:22px;display:block}
+.header-brand{font-size:13px;font-weight:600;color:#7EB3E8;letter-spacing:.12em;text-transform:uppercase;border-left:1px solid rgba(255,255,255,.15);padding-left:18px}
+.header-right{display:flex;align-items:center;gap:20px}
+.header-date{font-size:12px;color:#7B9AB8;font-family:'DM Mono',monospace}
+.live-badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(126,179,232,.15);color:#7EB3E8;border:1px solid rgba(126,179,232,.3);padding:3px 9px;border-radius:20px;display:flex;align-items:center;gap:5px}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#7EB3E8;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero{background:#1A2B4B;padding:52px 48px 48px;position:relative;overflow:hidden;border-bottom:3px solid #DC2626}
+.hero::after{content:'';position:absolute;right:-80px;top:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,#DC262620 0%,transparent 70%)}
+.hero-inner{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+.hero-headline{font-size:30px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:14px}
+.hero-headline em{font-style:normal;color:#DC2626}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.65);line-height:1.65;max-width:540px}
+.hero-sub strong{color:rgba(255,255,255,.9);font-weight:600}
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.gauge-svg{transform:rotate(-90deg)}
+.gauge-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:12}
+.gauge-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-align:center}
+.gauge-trend{font-size:11px;background:#DC262625;color:#DC2626;border:1px solid #DC262650;padding:3px 8px;border-radius:4px;font-family:'DM Mono',monospace}
+.section{padding:0 48px;margin-top:32px}
+.section-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7B9AB8;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:#D6E4F0}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-card{background:#fff;border:1px solid #D6E4F0;border-radius:10px;padding:20px 22px;box-shadow:0 1px 3px rgba(26,43,75,.05);border-left:4px solid #DC2626}
+.stat-num{font-family:'DM Mono',monospace;font-size:34px;font-weight:500;line-height:1;margin-bottom:6px;color:#DC2626}
+.stat-label{font-size:12px;color:#6B8299;line-height:1.5}
+.stat-sub{font-size:10px;color:#A0B4C8;margin-top:5px;font-family:'DM Mono',monospace}
+.prompt-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #D6E4F0;box-shadow:0 1px 3px rgba(26,43,75,.05)}
+.prompt-table thead tr{background:#F0F4F8;border-bottom:1px solid #D6E4F0}
+.prompt-table thead th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7B9AB8;padding:10px 14px;text-align:left}
+.prompt-table thead th.r{text-align:right}
+.prompt-table tbody tr{border-bottom:1px solid #EEF4F9}
+.prompt-table tbody td{padding:12px 14px;font-size:13px;color:#6B8299;vertical-align:middle}
+.prompt-table tbody td.r{text-align:right;font-family:'DM Mono',monospace;font-size:12px}
+.prompt-text{color:#1A2B4B;font-size:13px;line-height:1.4;max-width:480px;display:block}
+.score-bar-wrap{display:flex;align-items:center;gap:10px;min-width:140px}
+.score-bar-track{flex:1;background:#E2ECF4;border-radius:3px;height:5px;position:relative}
+.score-bar-fill{height:5px;border-radius:3px;position:absolute;left:0;top:0}
+.score-val{font-family:'DM Mono',monospace;font-size:12px;min-width:24px;text-align:right}
+.zero-badge{display:inline-flex;background:#FEF2F2;border:1px solid #FECACA;color:#EF4444;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;font-family:'DM Mono',monospace}
+.comp-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #D6E4F0;box-shadow:0 1px 3px rgba(26,43,75,.05)}
+.comp-table thead tr{background:#F0F4F8;border-bottom:1px solid #D6E4F0}
+.comp-table thead th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7B9AB8;padding:10px 14px;text-align:left}
+.comp-table thead th.r{text-align:right}
+.comp-table tbody tr{border-bottom:1px solid #EEF4F9}
+.comp-table td.r{text-align:right}
+.sources-grid{display:flex;flex-direction:column;gap:7px}
+.src-row{display:grid;grid-template-columns:200px 1fr 56px;align-items:center;gap:10px}
+.src-domain{font-size:12px;font-family:'DM Mono',monospace;color:#4A6B8A;text-align:right}
+.src-track{background:#E2ECF4;border-radius:3px;height:7px;position:relative}
+.src-fill{height:7px;border-radius:3px;position:absolute;left:0;top:0}
+.src-count{font-size:12px;font-family:'DM Mono',monospace;color:#6B8299;text-align:right}
+.model-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.model-card{background:#fff;border:1px solid #D6E4F0;border-radius:10px;padding:16px 14px;text-align:center;box-shadow:0 1px 3px rgba(26,43,75,.04)}
+.model-card.strong{border-top:3px solid #10B981}
+.model-card.mid{border-top:3px solid #F59E0B}
+.model-card.weak{border-top:3px solid #EF4444}
+.model-name{font-size:11px;font-weight:700;color:#1A2B4B;margin-bottom:6px}
+.model-pct{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;line-height:1;color:#1A2B4B}
+.model-card.strong .model-pct{color:#10B981}
+.model-card.mid .model-pct{color:#F59E0B}
+.model-card.weak .model-pct{color:#EF4444}
+.model-detail{font-size:10px;color:#A0B4C8;margin-top:6px;font-family:'DM Mono',monospace}
+.actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.action-card{background:#fff;border:1px solid #D6E4F0;border-radius:12px;padding:22px;box-shadow:0 1px 3px rgba(26,43,75,.05);border-top:3px solid #DC2626}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;color:#DC2626;margin-bottom:10px;font-weight:700;letter-spacing:.06em}
+.action-title{font-size:14px;font-weight:700;color:#1A2B4B;margin-bottom:8px;line-height:1.35}
+.action-body{font-size:12px;color:#6B8299;line-height:1.6;margin-bottom:10px}
+.action-impact{display:inline-flex;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#DC2626;background:#DC262615;border:1px solid #DC262630;padding:3px 8px;border-radius:4px}
+.footer{background:#1A2B4B;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:48px}
+.footer-left{font-size:12px;color:#7B9AB8}
+.footer-left strong{color:#fff;font-weight:600}
+.footer-right{font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace}
+@media print{body{background:#fff}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-mark"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4Ny4xMyA3Ni41Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzAwNjRhNjt9LmNscy0ye2ZpbGw6IzhmOGY4Zjt9LmNscy0ze2ZpbGw6IzU3NTc1Nzt9LmNscy00e2ZpbGw6IzFmMWYxZjt9PC9zdHlsZT48L2RlZnM+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9Il81IiBkYXRhLW5hbWU9IjUiPjxwYXRoIGQ9Ik00OC44MSwxMC4xNGwzLjEyLDUuNDFoNC43NGMxLjY5LDAsNi43NiwwLDUtMy4wNS0xLjM2LTIuMzYtNi4wOS0yLjM2LTguMTItMi4zNloiLz48cGF0aCBkPSJNNTMuMTYsNy40NGMxLjA2LDAsNC4yMywwLDMuMTQtMS45MS0uODYtMS40OC0zLjgyLTEuNDgtNS4wOS0xLjQ4SDQ1LjNsMiwzLjM5WiIvPjxwYXRoIGQ9Ik04My40NCwzNC40OGgtMmMtLjQzLS43My0yLjExLTMuNjMtMy42Ni02LjMzVjI0LjY0bC0zLjMtNS43MUg3MVYxNS4yOGgwYTYuMTYsNi4xNiwwLDAsMC0uOTMtM0M2OSwxMC4zMyw2Ni45Myw4LjkxLDY0LDhhMywzLDAsMCwwLC4yNy0uNTcsMy42LDMuNiwwLDAsMCwuMjMtMS4yNiw1LjU0LDUuNTQsMCwwLDAtLjg0LTIuNzJDNjIuNzEsMS44Miw2MC4zOC44Myw1Ni4zMi4zNWE2OS43OSw2OS43OSwwLDAsMC04LS4zNUgzM1Y2LjA4SDMwLjQzdjQuNTRMMjcuODIsNi4wOEgyMXMtMS4wNiw3LjcxLTEuNTUsMTEuMjRjLS40NC0uNzYtLjgxLTEuNDItMS4xNi0yVjExLjc5TDE1LDYuMDhIMFYyNC43MWwzLjI5LDUuNzFoMmMuNzksMS4zOSwxMC45MywxOC45NCwxMC45MywxOC45NGg4LjVsMS41LTEwLjc5YzIuMzEsNCw2LjIzLDEwLjc5LDYuMjMsMTAuNzloNy4xNWwuNC0yLjg1cy4xOC0xLjMyLjQ1LTMuMjRoLjY2bDMuNjYsNi4zM3YzLjUxbDMuNjgsNi4zOUg2Ni41NlM2Ny45LDQ5Ljc2LDY4LjI5LDQ3Yy41OCwxLDEuMDgsMS44NiwxLjUzLDIuNjV2My41MWwzLjcsNi4zOUg4Ny4xM1Y0MC44N1ptLTM2LTMzLjEzYzMuNzQsMCwxMi40OSwwLDE0LjA1LDIuNzEsMS40NCwyLjQ3LjI0LDMuODItMS43OCw0LjU0LDMuNDIuNTYsNi43NiwxLjc0LDguMjEsNC4yNSwzLjUsNi4wOC02LjYzLDYuMDgtMTAsNi4wOEg0NS43N2wtMi0zLjM4aDJMMzkuMjIsNC4wNmgtMkwzNS42MywxLjM1Wk0zOC41NiwyNy41MmwtLjIxLDEuNTVoLTVsLTgtMTMuODMtMS43LDEyLjI4LS4yMSwxLjU1SDE3LjE0TDYuMiwxMC4xNGgtMkwyLjYyLDcuNDRoMTEuNWwxLjU1LDIuN2gtMmw2LjY4LDExLjU3TDIyLDkuNDRsLjI3LTJIMjdsOC4yNSwxNC4yNywxLjYtMTEuNTdoLTIuMmwtMS41Ni0yLjdIMzkuNEw0MSwxMC4xNFpNNzQuMzksMzkuMjFsLTItMy4zOGgybC03LTEyLjIxTDY2LDMzLjkybC0uNzMsNS4yOUg2MS41M2wtLjM4LS40TDQ2Ljg0LDIzaC0uMDhsNy40MiwxMi44NGgybDEuOTUsMy4zOEg0OS4zN2wtMi0zLjM4aDJMNDIsMjNINDAuNjdMNDEsMjAuMjhoMTIuNkw1Ni4wOSwyM2w2LjI5LDYuOTQsMS02Ljk0LjM2LTIuNzFoOS45TDc1LjE2LDIzaC0ybDcuNDIsMTIuODRoMmwyLDMuMzhaIi8+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9Ijg1LjYzIDc2LjUgODcuMTMgNjggNzIuNjggNjggNzEuMTkgNzYuNSA4NS42MyA3Ni41Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjYxLjkxIDc2LjUgNjMuNCA2OCA0OC45NSA2OCA0Ny40NiA3Ni41IDYxLjkxIDc2LjUiLz48cG9seWdvbiBjbGFzcz0iY2xzLTMiIHBvaW50cz0iMzguMTcgNzYuNSAzOS42NyA2OCAyNS4yMSA2OCAyMy43MyA3Ni41IDM4LjE3IDc2LjUiLz48cG9seWdvbiBjbGFzcz0iY2xzLTQiIHBvaW50cz0iMTQuNDQgNzYuNSAxNS45NCA2OCAxLjQ5IDY4IDAgNzYuNSAxNC40NCA3Ni41Ii8+PC9nPjwvZz48L3N2Zz4=" alt="WBM"></div>
+    <div class="header-brand">Managed IT · Scorecard</div>
+  </div>
+  <div class="header-right">
+    <div class="live-badge"><span class="live-dot"></span> Live Data</div>
+    <div class="header-date">July 2026</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">986 AI runs · 10 tracked ICP queries · 5 models · daily analysis since Q4 2025</div>
+      <div class="hero-headline">Managed IT is <em>Invisible.</em></div>
+      <div class="hero-sub">0 mentions across 10 tracked ICP queries and 40 model runs. Regional competitors Sysgen, F12.net, Powerland, Long View also sit at zero — the entity space is genuinely open. Meanwhile the category flows 11,829 citations to YouTube, LinkedIn, Meriplex, Reddit. Fastest zero-to-visible move in the portfolio.</div>
+    </div>
+    <div class="gauge-wrap">
+      <svg class="gauge-svg" width="140" height="140" viewBox="0 0 140 140">
+        <circle class="gauge-bg" cx="70" cy="70" r="54"/>
+        <circle fill="none" stroke="#DC2626" stroke-width="12" stroke-linecap="round" cx="70" cy="70" r="54" stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+        <g transform="rotate(90,70,70)">
+          <text style="font-family:'DM Mono',monospace;font-size:38px;font-weight:500;fill:#DC2626" text-anchor="middle" dominant-baseline="middle" x="70" y="62">0</text>
+          <text style="font-family:'DM Mono',monospace;font-size:13px;fill:rgba(255,255,255,.4)" text-anchor="middle" dominant-baseline="middle" x="70" y="83">/ 100</text>
+        </g>
+      </svg>
+      <div class="gauge-label">Peekaboo Score</div>
+      <div class="gauge-trend">0% PROMPT COVERAGE</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:28px">
+  <div class="section-title">July 2026 Snapshot · vs. Q4 2025 baseline (daily analysis)</div>
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-num">0/10</div><div class="stat-label">ICP queries surfacing WBM</div><div class="stat-sub">0% coverage</div></div>
+    <div class="stat-card"><div class="stat-num">0.0</div><div class="stat-label">Avg score across all tracked queries (0-100)</div><div class="stat-sub">Best: 0</div></div>
+    <div class="stat-card"><div class="stat-num">—%</div><div class="stat-label">Positive sentiment share across 0 classified mentions</div><div class="stat-sub">Pos 0 · Neu 0 · Neg 0</div></div>
+    <div class="stat-card"><div class="stat-num">11,829</div><div class="stat-label">Total citations in this category (any brand)</div><div class="stat-sub">2187 unique domains</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">ICP Queries · Top 3 + Bottom 3</div>
+  <table class="prompt-table"><thead><tr><th style="padding-left:14px">Query</th><th class="r">Avg Score</th><th class="r">Best</th><th class="r">Runs</th><th class="r">Mentions</th><th style="min-width:160px">Score Bar</th></tr></thead><tbody><tr><td style="padding-left:14px"><span class="prompt-text">How can businesses ensure reliable end-user support for their employees?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">98</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr>
+<tr><td style="padding-left:14px"><span class="prompt-text">How can businesses protect sensitive data from cyber threats this year?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">94</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr>
+<tr><td style="padding-left:14px"><span class="prompt-text">How can businesses reduce IT downtime and improve system reliability?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">99</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr>
+<tr><td colspan="6" style="padding:4px 14px;background:#F8FAFC;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#A0B4C8;border-top:1px dashed #D6E4F0;border-bottom:1px dashed #D6E4F0">↓ Bottom 3 prompts (highest leverage) ↓</td></tr>
+<tr><td style="padding-left:14px"><span class="prompt-text">What are the key benefits of outsourcing IT services for businesses in 2025?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">100</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr>
+<tr><td style="padding-left:14px"><span class="prompt-text">What should companies look for in a managed IT provider?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">100</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr>
+<tr><td style="padding-left:14px"><span class="prompt-text">Why is data security important for small to medium-sized businesses?</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r"><span class="zero-badge">0</span></td><td class="r">100</td><td class="r">0</td><td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:0.0%;background:#EF4444"></div></div><span class="score-val" style="color:#EF4444">0</span></div></td></tr></tbody></table>
+</div>
+
+<div class="section">
+  <div class="section-title">Configured Competitors in Peekaboo · rank + score + trend</div>
+  <table class="comp-table">
+    <thead><tr><th style="padding-left:14px">Rank</th><th>Competitor</th><th>Domain</th><th class="r">Score</th><th class="r">Change</th></tr></thead>
+    <tbody><tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#1</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Sysgen</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">sysgen.ca/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">1</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#10B981;font-weight:700">+100%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#2</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">F12.net</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">f12.net/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#3</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Powerland</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">www.powerland.ca/en-ca</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#4</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Telus Fully Managed</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">www.telus.com/en/business/small/cloud/fully-managed</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#5</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Long view systems</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">www.longviewsystems.com/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#6</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Microserve</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">microserve.ca/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#7</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Nucleus Networks</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">yournucleus.ca/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr>
+<tr><td style="padding:10px 14px;font-size:13px;font-weight:600;color:#1A2B4B">#8</td><td style="padding:10px 14px;font-size:13px;color:#1A2B4B">Anchor Managed Solutions</td><td style="padding:10px 14px;font-size:11px;color:#7B9AB8;font-family:'DM Mono',monospace">www.anchorms.com/</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#1A2B4B">0</td><td class="r" style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:12px;color:#A0B4C8;font-weight:700">+0%</td></tr></tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">Top Cited Sources · where AI is pulling category answers from</div>
+  <div class="sources-grid"><div class="src-row"><div class="src-domain">youtube.com</div><div class="src-track"><div class="src-fill" style="width:100%;background:#DC2626"></div></div><div class="src-count">311</div></div>
+<div class="src-row"><div class="src-domain">linkedin.com</div><div class="src-track"><div class="src-fill" style="width:77%;background:#DC2626"></div></div><div class="src-count">238</div></div>
+<div class="src-row"><div class="src-domain">meriplex.com</div><div class="src-track"><div class="src-fill" style="width:52%;background:#DC2626"></div></div><div class="src-count">163</div></div>
+<div class="src-row"><div class="src-domain">reddit.com</div><div class="src-track"><div class="src-fill" style="width:52%;background:#DC2626"></div></div><div class="src-count">162</div></div>
+<div class="src-row"><div class="src-domain">cyber.gc.ca</div><div class="src-track"><div class="src-fill" style="width:48%;background:#DC2626"></div></div><div class="src-count">149</div></div>
+<div class="src-row"><div class="src-domain">chamber.ca</div><div class="src-track"><div class="src-fill" style="width:39%;background:#DC2626"></div></div><div class="src-count">121</div></div>
+<div class="src-row"><div class="src-domain">sysgen.ca</div><div class="src-track"><div class="src-fill" style="width:36%;background:#DC2626"></div></div><div class="src-count">113</div></div>
+<div class="src-row"><div class="src-domain">coherentsolutions.com</div><div class="src-track"><div class="src-fill" style="width:31%;background:#DC2626"></div></div><div class="src-count">95</div></div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">AI Model Coverage · July 2026</div>
+  <div class="model-grid">
+    <div class="model-card weak"><div class="model-name">Google AIO</div><div class="model-pct">0%</div><div class="model-detail">0/10 prompts</div></div>
+    <div class="model-card weak"><div class="model-name">Google AI Mode</div><div class="model-pct">0%</div><div class="model-detail">0/10 prompts</div></div>
+    <div class="model-card weak"><div class="model-name">Gemini 2.5</div><div class="model-pct">0%</div><div class="model-detail">0/10 prompts</div></div>
+    <div class="model-card weak"><div class="model-name">ChatGPT (GPT-4o)</div><div class="model-pct">0%</div><div class="model-detail">0/10 prompts</div></div>
+    <div class="model-card weak"><div class="model-name">Perplexity (Sonar)</div><div class="model-pct">0%</div><div class="model-detail">0/10 prompts</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Top 3 Priority Actions</div>
+  <div class="actions-grid"><div class="action-card">
+      <div class="action-num">01 · HIGH</div>
+      <div class="action-title">Own the Saskatchewan managed IT entity before Unitel and SysGen lock in the ICP answer</div>
+      <div class="action-body">WBM is invisible in 0 of 10 IT prompts while the category flows 11,829 citations to Unitel (33), SysGen (32), and F12.net (25). With demand-side leads up 50% YoY, every week without an entity presence hands more of the ChatGPT and Perplexity answer set to three regional rivals wh</div>
+      <div class="action-impact">First non-zero mention rate within 45 days, targeting 15 to 20 percent prompt co</div>
+    </div>
+<div class="action-card">
+      <div class="action-num">02 · HIGH</div>
+      <div class="action-title">Publish the five bottom-prompt answer pages this quarter to intercept the highest-leverage queries</div>
+      <div class="action-body">The five highest-leverage prompts, including &#x27;What should companies look for in a managed IT provider&#x27; and &#x27;benefits of outsourcing IT support in 2025&#x27;, all score 0/100 across roughly 100 runs each. Meriplex (163 citations) and PureIT (93) win because they publish exactly the lis</div>
+      <div class="action-impact">3 to 5 of the bottom prompts return WBM in at least one model by day 75, moving </div>
+    </div>
+<div class="action-card">
+      <div class="action-num">03 · HIGH</div>
+      <div class="action-title">Get WBM cited on cyber.gc.ca, chamber.ca, and Reddit where 432 category citations already live</div>
+      <div class="action-body">Three domains (cyber.gc.ca, chamber.ca, reddit.com) account for 432 citations in this category and are the sources LLMs cross-reference for Canadian SMB IT answers. WBM has zero presence on any of them despite serving the exact prairie SMB audience these sources address.</div>
+      <div class="action-impact">5 to 8 new backlinks from cited domains within 60 days, first WBM co-citation wi</div>
+    </div></div>
+</div>
+
+<div class="footer">
+  <div class="footer-left"><strong>Pragmatic AEO</strong> · Growth Automated · growthautomated.ai</div>
+  <div class="footer-right">Prepared for Brett Bailey · rahul@growthautomated.ai</div>
+</div>
+
+</div>
+<a href="./index.html" id="back-to-overview" style="position:fixed;top:18px;right:18px;z-index:9999;display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;background:linear-gradient(135deg,#1A1A1A 0%,#0F0F12 100%);color:#fff;font-family:'Assistant','DM Sans',sans-serif;font-size:12.5px;font-weight:600;text-decoration:none;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,0.40);border:1px solid rgba(0,100,166,0.35)"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#0064a6;font-size:13px;font-weight:700">←</span><span>Back to overview</span></a>
+</body></html>
