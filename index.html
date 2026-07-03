@@ -11,7 +11,7 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--wbm-blue:#0064a6;--wbm-blue-dark:#004a7d;--ga-blue:#334FB4;--ga-green:#2D9C56}
-  [data-theme="dark"]{--bg:#121212;--surface-1:#16161E;--surface-2:#1B1B2A;--rule:#2A2A36;--ink-1:#FFF;--ink-2:#E8E8EB;--ink-3:#A9B8D1;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.40);--shadow-card-rest:0 1px 3px rgba(0,0,0,0.5)}
+  [data-theme="dark"]{--bg:#150507;--surface-1:#260A0D;--surface-2:#340D11;--rule:#4A1015;--ink-1:#FAF5F0;--ink-2:#E8E0D8;--ink-3:#B8A8A0;--ink-4:#7A6866;--mark-bg:#FAF5F0;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,#4A1015 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.55),0 2px 12px rgba(196,19,26,0.15);--shadow-card-rest:0 1px 3px rgba(21,5,7,0.7)}
   [data-theme="light"]{--bg:#F3F3F3;--surface-1:#FFF;--surface-2:#FFF;--rule:#E2E8F0;--ink-1:#121212;--ink-2:#1F2937;--ink-3:#4B5563;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:none;--card-bg:#FFF;--card-feat-bg:linear-gradient(135deg,#FFF 0%,#EFF6FF 100%);--stat-bg:#FFF;--shadow-card:0 14px 38px rgba(0,100,166,0.12);--shadow-card-rest:0 1px 3px rgba(0,100,166,0.06)}
   body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--ink-2);min-height:100vh;transition:background .2s ease}
   .page{max-width:1080px;margin:0 auto;padding:0 24px 60px}
@@ -67,7 +67,15 @@
   .step-arrow{color:var(--accent);font-weight:700}
   .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:18px;font-size:12px;color:var(--ink-4);flex-wrap:wrap}
   .footer strong{color:var(--ink-3);font-weight:600}
-  @media(max-width:760px){.stat-strip{grid-template-columns:1fr 1fr;gap:14px;padding:18px}.stat-item{border-right:none;border-bottom:1px solid var(--rule);padding-bottom:14px}.stat-item:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}.hero-headline{font-size:28px}.step-card{grid-template-columns:72px 1fr}.step-num span{font-size:34px}.step-body{padding:18px 20px}.step-title{font-size:18px}.step-card.feat .step-title{font-size:20px}}
+  
+  /* Talon mode — 1993 Eagle Talon GT · Radiant Red R87 / AC10987 */
+  .talon-badge{display:none;position:fixed;bottom:20px;left:20px;z-index:10;background:linear-gradient(135deg,#340D11 0%,#260A0D 100%);border:1px solid #4A1015;border-radius:999px;padding:7px 14px 7px 10px;font-size:11px;font-weight:600;color:#E8E0D8;letter-spacing:0.2px;box-shadow:0 4px 14px rgba(0,0,0,0.45),0 0 0 1px rgba(196,19,26,0.25);align-items:center;gap:8px}
+  [data-theme="dark"] .talon-badge{display:inline-flex}
+  .talon-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:#C4131A;box-shadow:0 0 10px rgba(196,19,26,0.75),0 0 20px rgba(196,19,26,0.35);animation:pulseRed 2.4s ease-in-out infinite}
+  @keyframes pulseRed{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.55;transform:scale(0.85)}}
+  .talon-badge b{color:#FAF5F0;font-weight:700;letter-spacing:0.4px}
+  .talon-badge .code{font-family:'DM Mono',monospace;font-size:10px;color:#B8A8A0;letter-spacing:0.5px}
+@media(max-width:760px){.stat-strip{grid-template-columns:1fr 1fr;gap:14px;padding:18px}.stat-item{border-right:none;border-bottom:1px solid var(--rule);padding-bottom:14px}.stat-item:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}.hero-headline{font-size:28px}.step-card{grid-template-columns:72px 1fr}.step-num span{font-size:34px}.step-body{padding:18px 20px}.step-title{font-size:18px}.step-card.feat .step-title{font-size:20px}}
 </style>
 </head>
 <body>
@@ -81,7 +89,7 @@
       </div>
     </div>
     <div class="topbar-right">
-      <button class="theme-toggle" id="tt" aria-label="Toggle theme" type="button">
+      <button class="theme-toggle" id="tt" aria-label="Toggle Talon mode" title="Talon mode — 1993 Eagle Talon GT · Radiant Red (R87 / AC10987)" type="button">
         <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
@@ -185,6 +193,7 @@
     <div>Compiled July 2, 2026 · rahul@growthautomated.ai</div>
   </div>
 </div>
+<div class="talon-badge" title="1993 Eagle Talon GT · Radiant Red R87 / AC10987"><b>Talon mode</b> · <span class="code">R87</span></div>
 <script>(function(){var b=document.getElementById('tt');function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('wbm_theme',t);}catch(e){}}b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';set(c==='light'?'dark':'light');});})();</script>
 </body>
 </html>
