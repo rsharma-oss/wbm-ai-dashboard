@@ -11,8 +11,8 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--wbm-blue:#0064a6;--wbm-blue-dark:#004a7d;--ga-blue:#334FB4;--ga-green:#2D9C56}
-  [data-theme="dark"]{--bg:#121212;--surface-1:#16161E;--surface-2:#1B1B2A;--rule:#2A2A36;--ink-1:#FFF;--ink-2:#E8E8EB;--ink-3:#A9B8D1;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.40);--shadow-card-rest:0 1px 3px rgba(0,0,0,0.5)}
-  [data-theme="talon"]{--bg:#B8121A;--surface-1:#0F0304;--surface-2:#180608;--rule:#8A0F16;--ink-1:#FDF7F0;--ink-2:#EBE0D6;--ink-3:#D0BAA8;--ink-4:#8E7A6C;--mark-bg:#FDF7F0;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-1) 0%,#180608 100%);--stat-bg:var(--surface-2);--shadow-card:0 20px 44px rgba(0,0,0,0.45),0 2px 8px rgba(0,0,0,0.35);--shadow-card-rest:0 2px 8px rgba(0,0,0,0.30)}
+  [data-theme="dark"]{--wbm-blue:#2E86C8;--bg:#121212;--surface-1:#16161E;--surface-2:#1B1B2A;--rule:#2A2A36;--ink-1:#FFF;--ink-2:#E8E8EB;--ink-3:#A9B8D1;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.40);--shadow-card-rest:0 1px 3px rgba(0,0,0,0.5)}
+  [data-theme="talon"]{--wbm-blue:#2E86C8;--bg:#B8121A;--surface-1:#0F0304;--surface-2:#180608;--rule:#8A0F16;--ink-1:#FDF7F0;--ink-2:#EBE0D6;--ink-3:#D0BAA8;--ink-4:#8E7A6C;--mark-bg:#FDF7F0;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-1) 0%,#180608 100%);--stat-bg:var(--surface-2);--shadow-card:0 20px 44px rgba(0,0,0,0.45),0 2px 8px rgba(0,0,0,0.35);--shadow-card-rest:0 2px 8px rgba(0,0,0,0.30)}
   [data-theme="light"]{--bg:#F3F3F3;--surface-1:#FFF;--surface-2:#FFF;--rule:#E2E8F0;--ink-1:#121212;--ink-2:#1F2937;--ink-3:#4B5563;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:none;--card-bg:#FFF;--card-feat-bg:linear-gradient(135deg,#FFF 0%,#EFF6FF 100%);--stat-bg:#FFF;--shadow-card:0 14px 38px rgba(0,100,166,0.12);--shadow-card-rest:0 1px 3px rgba(0,100,166,0.06)}
   body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--ink-2);min-height:100vh;transition:background .2s ease}
   .page{max-width:1080px;margin:0 auto;padding:0 24px 60px}
@@ -111,7 +111,7 @@
   .lane-role{font-size:12px;color:var(--ink-4);font-weight:600;margin-top:3px}
   .verdict{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:5px 11px;border-radius:999px;width:fit-content}
   .verdict.print{background:rgba(16,185,129,0.13);color:#10B981}
-  .verdict.all{background:rgba(245,158,11,0.15);color:#B45309}
+  .verdict.all{background:rgba(245,158,11,0.15);color:#D97706}
   [data-theme="dark"] .verdict.all,[data-theme="talon"] .verdict.all{color:#F59E0B}
   .verdict.it{background:rgba(220,38,38,0.13);color:#DC2626}
 
@@ -230,7 +230,7 @@
       <div style="background:var(--card-bg);border:1px solid var(--rule);border-left:4px solid #F59E0B;border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
         <div>
           <div style="font-size:13px;font-weight:800;color:var(--ink-1)">WBM core brand</div>
-          <div style="font-size:12px;color:var(--ink-4)">rank #281 → <strong style="color:#B45309">#26</strong> of 2,668</div>
+          <div style="font-size:12px;color:var(--ink-4)">rank #281 → <strong style="color:#D97706">#26</strong> of 2,668</div>
         </div>
         <div style="text-align:right"><div style="font-size:34px;font-weight:900;color:#F59E0B;line-height:1;letter-spacing:-1px">6×</div><div style="font-size:10px;color:var(--ink-4);letter-spacing:0.3px">SHARE OF VOICE</div></div>
       </div>
@@ -307,8 +307,8 @@
           <text x="605" y="58" fill="#10B981">1.77%</text>
           <text x="520" y="116" fill="#10B981">1.32%</text>
           <text x="255" y="250" fill="var(--ink-4)" text-anchor="end">0.27%</text>
-          <text x="605" y="172" fill="#B45309">0.87%</text>
-          <text x="520" y="224" fill="#B45309">0.46%</text>
+          <text x="605" y="172" fill="#D97706">0.87%</text>
+          <text x="520" y="224" fill="#D97706">0.46%</text>
           <text x="628" y="293" fill="#DC2626" text-anchor="start">IT ≈ 0%</text>
         </g>
         <!-- multiplier badges (Q4 avg -> last 30d) -->
@@ -317,13 +317,13 @@
           <text x="640" y="76" font-size="17" font-weight="800" fill="#10B981">4.7&#215;</text>
           <text x="640" y="89" font-size="9.5" fill="var(--ink-4)">Print · Q4 avg → now</text>
           <rect x="628" y="164" width="128" height="34" rx="8" fill="rgba(245,158,11,0.12)" stroke="#F59E0B" stroke-width="1"/>
-          <text x="640" y="180" font-size="17" font-weight="800" fill="#B45309">6&#215;</text>
+          <text x="640" y="180" font-size="17" font-weight="800" fill="#D97706">6&#215;</text>
           <text x="640" y="193" font-size="9.5" fill="var(--ink-4)">Brand · Q4 avg → now</text>
         </g>
       </svg>
     </div>
     <div style="font-size:11.5px;color:var(--ink-4);line-height:1.55;margin-top:8px;border-top:1px solid var(--rule);padding-top:10px">
-      <strong style="color:var(--ink-3)">Reading the chart.</strong> Oct '25 (519 citations) and Jul '26 (~1,400) are <strong>partial months</strong> — shown as hollow points, lower confidence; Nov, Dec and June are full months. <strong>No data exists for Feb–May 2026</strong> (post-engagement, nothing exported). The 4.7× / 6× multipliers compare the full-Q4 baseline to the last-30-day window. Source: AI Peekaboo citation exports.
+      <strong style="color:var(--ink-3)">Reading the chart.</strong> Oct '25 (519 citations) and Jul '26 (~1,400) are <strong>partial months</strong> — shown as hollow points, lower confidence; Nov, Dec and June are full months. <strong>No data exists for Feb–May 2026</strong> (post-engagement, nothing exported). The 4.7× / 6× multipliers compare the full-Q4 baseline to the last-30-day window. Source: AI citation exports.
     </div>
   </div>
 
@@ -353,7 +353,7 @@
       </div>
       <div class="lane-body">
         <div>
-          <div class="band-label">Prompt coverage <span class="src">· Peekaboo brand mentions · current</span></div>
+          <div class="band-label">Prompt coverage <span class="src">· brand mentions · current</span></div>
           <div class="cov"><div class="cov-num">87%</div><div class="cov-note">+7 pts MoM · named in 13 of 15 monitored prompts</div></div>
           <div class="cov-bar"><span style="width:87%"></span></div>
         </div>
@@ -384,7 +384,7 @@
       </div>
       <div class="lane-body">
         <div>
-          <div class="band-label">Prompt coverage <span class="src">· Peekaboo brand mentions · current</span></div>
+          <div class="band-label">Prompt coverage <span class="src">· brand mentions · current</span></div>
           <div class="cov"><div class="cov-num">20%</div><div class="cov-note">flat MoM · named in 2 of 10 monitored prompts</div></div>
           <div class="cov-bar"><span style="width:20%"></span></div>
         </div>
@@ -415,7 +415,7 @@
       </div>
       <div class="lane-body">
         <div>
-          <div class="band-label">Prompt coverage <span class="src">· Peekaboo brand mentions · current</span></div>
+          <div class="band-label">Prompt coverage <span class="src">· brand mentions · current</span></div>
           <div class="cov"><div class="cov-num">0%</div><div class="cov-note">flat · named in 0 of 10 monitored prompts</div></div>
           <div class="cov-bar"><span style="width:1.5%"></span></div>
         </div>
@@ -507,7 +507,7 @@
     <div style="background:var(--card-bg);border:1px solid var(--rule);border-top:3px solid #F59E0B;border-radius:14px;box-shadow:var(--shadow-card-rest);padding:18px 20px">
       <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px">
         <div style="font-size:15px;font-weight:800;color:var(--ink-1)">WBM Technologies</div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#B45309">5/20 persist · most volatile</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#D97706">5/20 persist · most volatile</div>
       </div>
       <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px">Surging in the last 30 days</div>
       <div style="font-size:13px;color:var(--ink-3);line-height:1.7;margin-bottom:14px">salesforce · dataprise · canon.ca · elevityit.com</div>
@@ -530,16 +530,17 @@
   </div>
 
   <div class="method">
-    <strong style="color:var(--ink-3)">Method &amp; sources.</strong> <span style="color:var(--ink-3)">Prompt coverage</span> = share of monitored buyer prompts where AI names WBM (AI Peekaboo brand-mention tracking, current snapshot). <span style="color:var(--ink-3)">Citation depth</span> = WBM's own domain (<code>wbm.ca</code>) as a share of all source citations, from Peekaboo citation exports: Q4 2025 (Oct–Dec) vs. trailing 30 days. Models: GPT-4o/5-mini, Gemini 2.5 Flash, Perplexity Sonar, Google AI Overviews &amp; AI Mode. <code>n = 145,364</code> citation rows.
+    <strong style="color:var(--ink-3)">Method &amp; sources.</strong> <span style="color:var(--ink-3)">Prompt coverage</span> = share of monitored buyer prompts where AI names WBM (AI brand-mention tracking, current snapshot). <span style="color:var(--ink-3)">Citation depth</span> = WBM's own domain (<code>wbm.ca</code>) as a share of all source citations, from citation exports: Q4 2025 (Oct–Dec) vs. trailing 30 days. Models: GPT-4o/5-mini, Gemini 2.5 Flash, Perplexity Sonar, Google AI Overviews &amp; AI Mode. <code>n = 145,364</code> citation rows.
   </div>
 
   <div class="footer">
     <div><strong>Pragmatic AEO</strong> · Growth Automated · growthautomated.ai</div>
-    <div>Compiled July 5, 2026 · Live AI Peekaboo exports + visibility API · rahul@growthautomated.ai</div>
+    <div>Compiled July 5, 2026 · Live AI citation exports + visibility API · rahul@growthautomated.ai</div>
   </div>
   </div>
 </div>
 <div class="talon-badge" title="1993 Eagle Talon GT · Radiant Red R87 / AC10987"><b>Talon mode</b> · <span class="code">R87</span></div>
 <script>(function(){function apply(t){document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('[data-theme-set]').forEach(function(el){el.setAttribute('aria-pressed',el.getAttribute('data-theme-set')===t?'true':'false');});try{localStorage.setItem('wbm_theme',t);}catch(e){}}var cur=document.documentElement.getAttribute('data-theme')||'light';apply(cur);document.querySelectorAll('[data-theme-set]').forEach(function(el){el.addEventListener('click',function(){apply(el.getAttribute('data-theme-set'));});});})();</script>
+<a href="./index.html" id="back-to-overview" style="position:fixed;top:18px;right:18px;z-index:9999;display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;background:linear-gradient(135deg,#1A1A1A 0%,#0F0F12 100%);color:#fff;font-family:'Assistant','Inter',-apple-system,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.3px;text-decoration:none;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,0.40),0 2px 6px rgba(0,100,166,0.20);border:1px solid rgba(0,100,166,0.35);transition:all .18s ease" onmouseover="this.style.transform='translateY(-1px)';this.style.borderColor='rgba(0,100,166,0.7)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,100,166,0.35)'"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#0064a6;font-size:13px;line-height:1;font-weight:700">←</span><span>Back to overview</span></a>
 </body>
 </html>

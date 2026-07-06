@@ -11,8 +11,8 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--wbm-blue:#0064a6;--wbm-blue-dark:#004a7d;--ga-blue:#334FB4;--ga-green:#2D9C56}
-  [data-theme="dark"]{--bg:#121212;--surface-1:#16161E;--surface-2:#1B1B2A;--rule:#2A2A36;--ink-1:#FFF;--ink-2:#E8E8EB;--ink-3:#A9B8D1;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.40);--shadow-card-rest:0 1px 3px rgba(0,0,0,0.5)}
-  [data-theme="talon"]{--bg:#B8121A;--surface-1:#0F0304;--surface-2:#180608;--rule:#8A0F16;--ink-1:#FDF7F0;--ink-2:#EBE0D6;--ink-3:#D0BAA8;--ink-4:#8E7A6C;--mark-bg:#FDF7F0;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-1) 0%,#180608 100%);--stat-bg:var(--surface-2);--shadow-card:0 20px 44px rgba(0,0,0,0.45),0 2px 8px rgba(0,0,0,0.35);--shadow-card-rest:0 2px 8px rgba(0,0,0,0.30)}
+  [data-theme="dark"]{--wbm-blue:#2E86C8;--bg:#121212;--surface-1:#16161E;--surface-2:#1B1B2A;--rule:#2A2A36;--ink-1:#FFF;--ink-2:#E8E8EB;--ink-3:#A9B8D1;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 100%);--stat-bg:var(--surface-2);--shadow-card:0 14px 38px rgba(0,0,0,0.40);--shadow-card-rest:0 1px 3px rgba(0,0,0,0.5)}
+  [data-theme="talon"]{--wbm-blue:#2E86C8;--bg:#B8121A;--surface-1:#0F0304;--surface-2:#180608;--rule:#8A0F16;--ink-1:#FDF7F0;--ink-2:#EBE0D6;--ink-3:#D0BAA8;--ink-4:#8E7A6C;--mark-bg:#FDF7F0;--logo-filter:brightness(0) invert(1);--card-bg:var(--surface-2);--card-feat-bg:linear-gradient(135deg,var(--surface-1) 0%,#180608 100%);--stat-bg:var(--surface-2);--shadow-card:0 20px 44px rgba(0,0,0,0.45),0 2px 8px rgba(0,0,0,0.35);--shadow-card-rest:0 2px 8px rgba(0,0,0,0.30)}
   [data-theme="light"]{--bg:#F3F3F3;--surface-1:#FFF;--surface-2:#FFF;--rule:#E2E8F0;--ink-1:#121212;--ink-2:#1F2937;--ink-3:#4B5563;--ink-4:#71717A;--mark-bg:#FFF;--logo-filter:none;--card-bg:#FFF;--card-feat-bg:linear-gradient(135deg,#FFF 0%,#EFF6FF 100%);--stat-bg:#FFF;--shadow-card:0 14px 38px rgba(0,100,166,0.12);--shadow-card-rest:0 1px 3px rgba(0,100,166,0.06)}
   body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--ink-2);min-height:100vh;transition:background .2s ease}
   .page{max-width:1080px;margin:0 auto;padding:0 24px 60px}
@@ -111,7 +111,7 @@
   .lane-role{font-size:12px;color:var(--ink-4);font-weight:600;margin-top:3px}
   .verdict{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:5px 11px;border-radius:999px;width:fit-content}
   .verdict.print{background:rgba(16,185,129,0.13);color:#10B981}
-  .verdict.all{background:rgba(245,158,11,0.15);color:#B45309}
+  .verdict.all{background:rgba(245,158,11,0.15);color:#D97706}
   [data-theme="dark"] .verdict.all,[data-theme="talon"] .verdict.all{color:#F59E0B}
   .verdict.it{background:rgba(220,38,38,0.13);color:#DC2626}
 
@@ -195,7 +195,7 @@
         <div style="font-size:14px;font-weight:700;color:var(--ink-1);margin-bottom:6px">Homepage</div>
         <a href="https://www.wbm.ca/" target="_blank" rel="noopener" style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;color:var(--wbm-blue);word-break:break-all;line-height:1.5;display:block;margin-bottom:10px;text-decoration:none">https://www.wbm.ca/</a>
         <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0a7a44;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
+          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0F9D58;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">101,599 B</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">1 LD-JSON</span>
         </div>
@@ -204,7 +204,7 @@
         <div style="font-size:14px;font-weight:700;color:var(--ink-1);margin-bottom:6px">Managed IT</div>
         <a href="https://www.wbm.ca/it-solutions/managed-it-services/" target="_blank" rel="noopener" style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;color:var(--wbm-blue);word-break:break-all;line-height:1.5;display:block;margin-bottom:10px;text-decoration:none">https://www.wbm.ca/it-solutions/managed-it-services/</a>
         <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0a7a44;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
+          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0F9D58;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">103,187 B</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">1 LD-JSON</span>
         </div>
@@ -213,7 +213,7 @@
         <div style="font-size:14px;font-weight:700;color:var(--ink-1);margin-bottom:6px">Managed Print</div>
         <a href="https://www.wbm.ca/it-solutions/managed-print-solutions/" target="_blank" rel="noopener" style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;color:var(--wbm-blue);word-break:break-all;line-height:1.5;display:block;margin-bottom:10px;text-decoration:none">https://www.wbm.ca/it-solutions/managed-print-solutions/</a>
         <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0a7a44;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
+          <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,.12);color:#0F9D58;border:1px solid rgba(16,185,129,.3)">HTTP 200</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">97,645 B</span>
           <span style="font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-3)">1 LD-JSON</span>
         </div>
@@ -274,11 +274,12 @@ curl -sL "https://www.wbm.ca/it-solutions/managed-it-services/" \
 
   <div class="footer">
     <div><strong>Pragmatic AEO</strong> · Growth Automated · growthautomated.ai</div>
-    <div>Compiled July 5, 2026 · Live AI Peekaboo exports + visibility API · rahul@growthautomated.ai</div>
+    <div>Compiled July 5, 2026 · Live AI citation exports + visibility API · rahul@growthautomated.ai</div>
   </div>
   </div>
 </div>
 <div class="talon-badge" title="1993 Eagle Talon GT · Radiant Red R87 / AC10987"><b>Talon mode</b> · <span class="code">R87</span></div>
 <script>(function(){function apply(t){document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('[data-theme-set]').forEach(function(el){el.setAttribute('aria-pressed',el.getAttribute('data-theme-set')===t?'true':'false');});try{localStorage.setItem('wbm_theme',t);}catch(e){}}var cur=document.documentElement.getAttribute('data-theme')||'light';apply(cur);document.querySelectorAll('[data-theme-set]').forEach(function(el){el.addEventListener('click',function(){apply(el.getAttribute('data-theme-set'));});});})();</script>
+<a href="./index.html" id="back-to-overview" style="position:fixed;top:18px;right:18px;z-index:9999;display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;background:linear-gradient(135deg,#1A1A1A 0%,#0F0F12 100%);color:#fff;font-family:'Assistant','Inter',-apple-system,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.3px;text-decoration:none;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,0.40),0 2px 6px rgba(0,100,166,0.20);border:1px solid rgba(0,100,166,0.35);transition:all .18s ease" onmouseover="this.style.transform='translateY(-1px)';this.style.borderColor='rgba(0,100,166,0.7)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,100,166,0.35)'"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#0064a6;font-size:13px;line-height:1;font-weight:700">←</span><span>Back to overview</span></a>
 </body>
 </html>
